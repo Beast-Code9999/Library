@@ -31,15 +31,21 @@ body {
 }
 
 .sidebar {
-    
+    grid-column: sidebar-start / sidebar-end;
+    grid-row: 1 / -1;
+    background-color: lightcoral;
 }
 
 .header {
-
+    grid-column: full-start / full-end;
+    grid-row: 1 / 2;
+    background-color: lightgreen;
 }
 
 .main {
-
+    grid-column: full-start / full-end;
+    grid-row: 2 / 3;
+    background-color: lightyellow;
 }
 
 .main__legend {
