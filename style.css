@@ -18,4 +18,36 @@ html {
 body {
     box-sizing: border-box;
     line-height: 1.6;
+    height: 100vh;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    background-color: lightblue;
+    display: grid;
+}
+
+.sidebar {
+
+}
+
+.header {
+
+}
+
+.main {
+
+}
+
+.main__legend {
+
+}
+
+.main__container {
+
+}
+
+.card {
+
 }
