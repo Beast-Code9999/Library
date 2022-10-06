@@ -38,6 +38,22 @@ body {
     grid-column: sidebar-start / sidebar-end;
     grid-row: 1 / -1;
     background-color: lightcoral;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar__logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.sidebar__logo--img {
+    width: 10rem;
+}
+.sidebar__logo--heading {
+    font-size: 4rem;
 }
 
   .footer {
