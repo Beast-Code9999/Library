@@ -37,7 +37,7 @@ body {
 .sidebar {
     grid-column: sidebar-start / sidebar-end;
     grid-row: 1 / -1;
-    background-color: lightcoral;
+    background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -65,10 +65,29 @@ body {
 }
 .input-container {
     width: 90%;
+    position: relative;
+}
 
+.input__label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    font-size: 1.5rem;
 }
 .input__text {
     width: 100%;
+    border: none;
+    height: 3rem;
+    font-size: 2rem;
+    background-color: lightblue;
+}
+.input__text:focus {
+    outline: none;
+}
+.input__text:focus + .input__label {
+    background-color: black;
 }
 
   .footer {
