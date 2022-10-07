@@ -92,6 +92,7 @@ body {
     height: 4rem;
     font-size: 2rem;
     border-bottom: 3px dashed var(--color-text);
+    color: var(--color-text);
 }
 .input__text:focus {
     outline: none;
@@ -100,6 +101,18 @@ body {
     top: -50%;
     font-size: 1.6rem;
 }
+.input__checkbox {
+    font-size: 2rem;
+    color: var(--color-text);    
+}
+.input__checkbox input {
+    accent-color: var(--color-text);
+}
+.input__checkbox input:hover {
+    accent-color: orangered;
+}
+
+
 
   .footer {
     padding: 4rem;
