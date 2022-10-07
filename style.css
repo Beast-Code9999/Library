@@ -61,25 +61,31 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 5rem;
-    width: 90%;
+    width: 95%;
 }
 .input-container {
-    width: 90%;
+    width: 100%;
     position: relative;
 }
 
 .input__label {
+    width: 100%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 100%;
-    font-size: 1.5rem;
+    font-size: 2rem;
+    color: #7f4c04;
+    transition: top .2s, font-size .2s;
+    user-select: none;
+}
+.input__label:hover {
+    cursor: text;
 }
 .input__text {
     width: 100%;
     border: none;
-    height: 3rem;
+    height: 4rem;
     font-size: 2rem;
     background-color: lightblue;
 }
@@ -87,7 +93,8 @@ body {
     outline: none;
 }
 .input__text:focus + .input__label {
-    background-color: black;
+    top: -50%;
+    font-size: 1.6rem;
 }
 
   .footer {
