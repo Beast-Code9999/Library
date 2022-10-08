@@ -212,12 +212,16 @@ body {
     grid-row: 2 / 3;
     background-color: rgb(244, 245, 237);
     display: grid;
-    grid-template-rows: auto auto;
+    grid-template-rows: 10% auto;
 }
 
 .main__legend {
     grid-column: 1 / -1;
-
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem;
 }
 
 .main__container {
