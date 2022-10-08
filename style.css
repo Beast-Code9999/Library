@@ -212,7 +212,7 @@ body {
     grid-row: 2 / 3;
     background-color: rgb(244, 245, 237);
     display: grid;
-    grid-template-rows: 10% auto;
+    grid-template-rows: 15% auto;
 }
 
 .main__legend {
@@ -222,6 +222,16 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 3rem;
+}
+.settings {
+
+}
+.settings span {
+    font-size: 1.6rem;
+}
+.settings__select {
+    background-color: #7f4c04;
+    color: white;
 }
 
 .main__container {
