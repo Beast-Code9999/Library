@@ -80,7 +80,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 2rem;
+    font-size: 1.6rem;
     color: var(--color-text);
     transition: top .2s, font-size .2s;
     user-select: none;
@@ -101,10 +101,10 @@ body {
 }
 .input__text:focus + .input__label {
     top: -50%;
-    font-size: 1.6rem;
+    font-size: 1.3rem;
 }
 .input__checkbox {
-    font-size: 2rem;
+    font-size: 1.6rem;
     color: var(--color-text);    
 }
 .input__checkbox input {
@@ -128,12 +128,10 @@ body {
     filter: brightness(130%)
 }
 
-
-
   .footer {
     padding: 4rem;
     text-align: center;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     color: var(--color-text);
     
     display: flex;
@@ -151,7 +149,7 @@ body {
   }
 
   .footer img {
-    width: 1.8rem;
+    width: 1.6rem;
     height: auto;
     transition: transform .7s ease-in-out;
     margin-left: 1rem;
