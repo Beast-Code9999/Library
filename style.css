@@ -167,7 +167,28 @@ body {
 .header {
     grid-column: full-start / full-end;
     grid-row: 1 / 2;
-    background-color: lightgreen;
+    background-color:  lightgoldenrodyellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: var(--color-text);
+}
+#total-num {
+    color: blue;
+}
+.header__button {
+    padding: 1rem 4rem;
+    text-transform: uppercase;
+    color: white;
+    background-color: rgb(214, 0, 0);
+    border: none;
+}
+.header__button:hover {
+    cursor: pointer;
+
 }
 /* end of header */
 
@@ -176,7 +197,7 @@ body {
 .main {
     grid-column: full-start / full-end;
     grid-row: 2 / 3;
-    background-color: lightyellow;
+    background-color: rgb(250, 252, 231);
 }
 
 .main__legend {
