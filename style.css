@@ -287,11 +287,12 @@ body {
 
 }
 .card__title {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     margin-bottom: 1rem;
 }
-.card__author {
-
+.card__author, .card__pages, .card__publish-date {
+    font-weight: 100;
+    font-size: 1.2rem;
 }
 .card__pages {
 
@@ -310,7 +311,7 @@ body {
     color: white;
     font-size: 2rem;
     font-weight: 700;
-    background-color: var(--color-primary-dark);
+    background-color: green;
 }
 /* end of main container */
 /* end of main */
