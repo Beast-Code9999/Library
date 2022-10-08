@@ -211,14 +211,19 @@ body {
     grid-column: full-start / full-end;
     grid-row: 2 / 3;
     background-color: rgb(244, 245, 237);
+    display: grid;
+    grid-template-rows: auto auto;
 }
 
 .main__legend {
+    grid-column: 1 / -1;
 
 }
 
 .main__container {
-
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-gap: 7rem;
 }
 
 .card {
