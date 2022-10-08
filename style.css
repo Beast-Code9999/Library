@@ -32,7 +32,7 @@ body {
     background-color: lightblue;
     display: grid;
     grid-template-columns: [sidebar-start] 30rem [sidebar-end full-start] 1fr [center-start] repeat(8, [col-start] minmax(auto, 10rem) [col-end]) [center-end] 1fr [full-end];
-    grid-template-rows: 30vh 70vh;
+    grid-template-rows: 20vh 80vh;
 }
 /* end of container */
 
