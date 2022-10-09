@@ -288,7 +288,22 @@ body {
     background-image: linear-gradient(to bottom right, white -50%, lightgoldenrodyellow);
 }
 .card__icon {
-
+    width: 1.5rem;
+    position: absolute;
+    right: 1.5rem;
+    top: 1.5rem;
+    transition: all .3s;
+    opacity: .8;
+}
+.card__icon:hover {
+    cursor: pointer;
+    transform: rotate(90deg) scale(1.6);
+    translate: -.3rem -.3rem;
+    opacity: 1;
+    
+}
+.card__icon img {
+    width: 100%;
 }
 .card__title {
     font-size: 1.8rem;
@@ -316,6 +331,9 @@ body {
     font-size: 2rem;
     font-weight: 700;
     background-color: red;
+}
+.card__button:hover {
+    
 }
 .card__button--read {
     background-color: green;
