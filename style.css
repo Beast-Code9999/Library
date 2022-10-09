@@ -107,6 +107,12 @@ body {
     top: -50%;
     font-size: 1.3rem;
 }
+.input__date {
+    width: 100%;
+}
+.input__date input {
+    width: 100%;
+}
 .input__checkbox {
     font-size: 1.6rem;
     color: var(--color-text);
