@@ -11,9 +11,9 @@ const addBtn = document.getElementById('add-button');
 //start of header selection
 const totalNum = document.getElementById('total-num');
 const readNum = document.getElementById('read-num');
-const unreadNum = document.getElementById('unread-num')
-console.log(unreadNum)
-
+const unreadNum = document.getElementById('unread-num');
+const deleteAll = document.getElementById('delete-all');
+// end of header selection
 
 let myLibrary = [];
 
