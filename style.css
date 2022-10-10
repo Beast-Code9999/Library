@@ -50,6 +50,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
 }
 
 .sidebar__logo {
@@ -106,6 +107,11 @@ body {
 .input__text:focus + .input__label {
     top: -50%;
     font-size: 1.3rem;
+}
+.input__text-notnull { 
+    top: -50%;
+    font-size: 1.3rem;
+    /* work in progress */
 }
 .input__date {
     width: 100%;
