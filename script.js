@@ -10,7 +10,9 @@ const addBtn = document.getElementById('add-button');
 // end of sidebar selection
 //start of header selection
 const totalNum = document.getElementById('total-num');
-console.log(totalNum)
+const readNum = document.getElementById('read-num');
+const unreadNum = document.getElementById('unread-num')
+console.log(unreadNum)
 
 
 let myLibrary = [];
