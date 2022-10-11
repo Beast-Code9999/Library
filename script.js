@@ -17,8 +17,7 @@ const deleteAll = document.getElementById('delete-all');
 
 // end of mmain selection
 
-
-// input label style
+// input label dynamic adding or removing of css attribute 
 inputText.forEach( item => {
   item.addEventListener('input', () => {
     if(item.value !== "") {
@@ -29,6 +28,8 @@ inputText.forEach( item => {
     }
   })
 })
+
+// 
 
 
 let myLibrary = [];
