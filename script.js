@@ -29,8 +29,14 @@ inputText.forEach( item => {
   })
 })
 
-// 
+// to make sure that inputPages only receives numbers
+inputPages.addEventListener('input', checkInputNum)
 
+function checkInputNum() {
+  if(isNaN(inputDate)) {
+    console.log("not a number")
+  }
+}
 
 let myLibrary = [];
 
