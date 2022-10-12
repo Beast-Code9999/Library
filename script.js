@@ -14,7 +14,9 @@ const unreadNum = document.getElementById('unread-num');
 const deleteAll = document.getElementById('delete-all');
 // end of header selection
 // start main selection
-
+const settingsDate = document.getElementById('settings__date');
+const settingsAscDesc = document.getElementById('settings__ascending-descending');
+console.log(settingsAscDesc)
 // end of mmain selection
 
 // input label dynamic adding or removing of css attribute 
