@@ -21,10 +21,10 @@ const deleteAll = document.getElementById('delete-all');
 inputText.forEach( item => {
   item.addEventListener('input', () => {
     if(item.value !== "") {
-      item.nextElementSibling.classList.add('input__text-notnull')
+      item.nextElementSibling.classList.add('input__text-notnull');
     }
     else {
-      item.nextElementSibling.classList.remove('input__text-notnull')
+      item.nextElementSibling.classList.remove('input__text-notnull');
     }
   })
 })
@@ -34,7 +34,10 @@ inputPages.addEventListener('input', checkInputNum)
 
 function checkInputNum() {
   if(isNaN(inputPages.value)) {
-    console.log("not a number")
+    inputPages.nextElementSibling.classList.add('input__label-pages');
+  }
+  else {
+    inputPages.nextElementSibling.classList.remove('input__label-pages');
   }
 }
 
