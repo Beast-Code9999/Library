@@ -114,6 +114,19 @@ body {
     font-size: 1.3rem;
     /* work in progress */
 }
+.input__label-pages {
+}
+.input__label-pages::after {
+    content:"please enter a number*";
+    display:block;
+    width: 100%;
+    height: 2rem;  
+    position: absolute;
+    top: 4rem;
+    font-size: 1.2rem;
+    color: var(--color-red);
+
+}
 .input__date {
     width: 100%;
 }

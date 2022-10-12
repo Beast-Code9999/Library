@@ -33,7 +33,7 @@ inputText.forEach( item => {
 inputPages.addEventListener('input', checkInputNum)
 
 function checkInputNum() {
-  if(isNaN(inputDate)) {
+  if(isNaN(inputPages.value)) {
     console.log("not a number")
   }
 }
