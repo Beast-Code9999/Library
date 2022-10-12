@@ -17,43 +17,46 @@
             </div>
 
             <div class="sidebar__input-container">
-                <div class="input-container">
-                    <input class="input__text"
-                    type="text"  
-                    id="input-title"
-                    autocomplete="off"
-                    required>
-                    <label for="input-title" class="input__label" id="input__text-label">What is the title of the book?</label>
-                </div>
-                <div class="input-container">
-                    <input class="input__text"
-                    type="text" 
-                    id="input-author"
-                    autocomplete="off"
-                    required>
-                    <label for="input-author" class="input__label">Who is the author of the book?</label>
-                </div>
-                <div class="input-container">
-                    <input class="input__text"
-                    type="text"
-                    id="input-pages"
-                    autocomplete="off"
-                    pattern="^[0-9]*$"
-                    required>
-                    <label for="input-pages" class="input__label">How many pages are in the book?</label>
-                </div>
-                <div class="input__date">
-                    <input type="date"
-                           name="input-date" 
-                           id="input-date" 
-                           autocomplete="off"
-                           required>
-                </div>
-                <div class="input__checkbox">
-                    <input type="checkbox" name="read" id="input-read" autocomplete="off">
-                    <label for="input-read">I have already read this book</label>
-                </div>
-                <button type="submit" class="sidebar__button" id="add-button">Add book</button>
+                <form>
+                    <div class="input-container">
+                        <input class="input__text"
+                        type="text"
+                        id="input-title"
+                        autocomplete="off"
+                        required>
+                        <label for="input-title" class="input__label" id="input__text-label">What is the title of the book?</label>
+                    </div>
+                    <div class="input-container">
+                        <input class="input__text"
+                        type="text"
+                        id="input-author"
+                        autocomplete="off"
+                        required>
+                        <label for="input-author" class="input__label">Who is the author of the book?</label>
+                    </div>
+                    <div class="input-container">
+                        <input class="input__text"
+                        type="text"
+                        id="input-pages"
+                        autocomplete="off"
+                        pattern="^[0-9]*$"
+                        title="numbers only"
+                        required>
+                        <label for="input-pages" class="input__label">How many pages are in the book?</label>
+                    </div>
+                    <div class="input__date">
+                        <input type="date"
+                               name="input-date"
+                               id="input-date"
+                               autocomplete="off"
+                               required>
+                    </div>
+                    <div class="input__checkbox">
+                        <input type="checkbox" name="read" id="input-read" autocomplete="off">
+                        <label for="input-read">I have already read this book</label>
+                    </div>
+                    <button type="submit" class="sidebar__button" id="add-button">Add book</button>
+                </form>
             </div>
 
             <div class="footer">

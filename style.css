@@ -67,8 +67,11 @@ body {
     font-size: 4rem;
     color: var(--color-text);
 }
-
 .sidebar__input-container {
+    display: flex;
+    justify-content: center;
+}
+.sidebar__input-container form {
     display: flex;
     flex-direction: column;
     align-items: center;
