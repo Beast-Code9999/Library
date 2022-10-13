@@ -43,8 +43,6 @@ function checkInputNum() {
     inputPages.nextElementSibling.classList.remove('input__label-pages');
   }
 }
-// check if every input is valid
-
 // window.addEventListener('click', () => {
   //   console.log('input title value: ', inputTitle.value)
 //   console.log('input author value: ', inputAuthor.value)
@@ -62,7 +60,6 @@ function Book(title, author, pages, date, read) {
   this.read = read
 }
 
-
 addBtn.addEventListener('click', addBookToLibrary)
 function addBookToLibrary() {
   let buttonAllow = false;
@@ -75,11 +72,14 @@ function addBookToLibrary() {
     myLibrary.push(book)
     console.log(myLibrary)
     buttonAllow = false;
-    inputText.forEach( input => {
-      input.textContent = ''
-      input.value = ''
-    })
+    empyInputs() 
   }
+}
+function empyInputs() {
+  inputText.forEach( input => {
+    input.textContent = ''
+    input.value = ''
+  })
 }
 
 function createCard() {
