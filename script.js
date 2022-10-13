@@ -35,7 +35,6 @@ inputText.forEach( item => {
 })
 // to make sure that inputPages only receives numbers
 inputPages.addEventListener('input', checkInputNum)
-
 function checkInputNum() {
   if(isNaN(inputPages.value)) {
     inputPages.nextElementSibling.classList.add('input__label-pages');
@@ -44,15 +43,20 @@ function checkInputNum() {
     inputPages.nextElementSibling.classList.remove('input__label-pages');
   }
 }
+// check if every input is valid
+let buttonAllow = false;
+function validate() {
+  if(inputTitle.value !== '' && inputAuthor.value !== '' && inputPages.value !== '' && inputDate.value !== '') {
+    buttonAllow = true;
+  }
+}
 
-inputRead.addEventListener('click', () => {
-  console.log(inputRead.checked)
+window.addEventListener('click', () => {
+  console.log('input title value: ', inputTitle.value)
+  console.log('input author value: ', inputAuthor.value)
+  console.log('input pages value: ', inputPages.value)
+  console.log('input date value: ', inputDate.value)
 })
-
-inputDate.addEventListener('input', () => {
-  console.log(inputDate.value)
-})
-//
 
 let myLibrary = [];
 
@@ -63,8 +67,16 @@ function Book(title, author, pages, date, read) {
   this.date = date
   this.read = read
 }
+
 addBtn.addEventListener('click', addBookToLibrary)
 function addBookToLibrary() {
+  validate()
+  const book = new Book('hello', 'what', '123', '12//12//12', 'read')
+  myLibrary.push(book)
+  console.log(myLibrary)
+}
+
+function createCard() {
   const container = document.getElementById('card-container')
   const content = document.createElement('div');
   content.classList.add('card');
@@ -77,7 +89,4 @@ function addBookToLibrary() {
                         <h3 class="card__publish-date">originally published: <span class="card__publish-date-span">01/10/1936</span></h3>
                         <button class="card__button">Read</button>
                       `
-
-
 }
-
