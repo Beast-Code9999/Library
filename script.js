@@ -59,7 +59,7 @@ function Book(title, author, pages, date, read) {
   this.date = date
   this.read = read
 }
-
+console.log(inputRead.checked)
 addBtn.addEventListener('click', addBookToLibrary)
 function addBookToLibrary() {
   let buttonAllow = false;
@@ -68,7 +68,7 @@ function addBookToLibrary() {
     console.log(buttonAllow)
   }
   if(buttonAllow === true) {
-    const book = new Book(`${inputTitle.value}`, `${inputAuthor.value}`, `${inputTitle.value}`, `${inputTitle.value}`, 'read')
+    const book = new Book(`${inputTitle.value}`, `${inputAuthor.value}`, `${inputPages.value}`, `${inputDate.value}`, `${inputRead.checked}`)
     myLibrary.push(book)
     console.log(myLibrary)
     buttonAllow = false;
