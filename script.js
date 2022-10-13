@@ -63,8 +63,21 @@ function Book(title, author, pages, date, read) {
   this.date = date
   this.read = read
 }
-
+addBtn.addEventListener('click', addBookToLibrary)
 function addBookToLibrary() {
   const container = document.getElementById('card-container')
+  const content = document.createElement('div');
+  content.classList.add('card');
+  container.appendChild(content);
+  content.innerHTML = `              
+                        <span class="card__icon"><img src="./icon/close-bold-svgrepo-com.svg" alt="close-icon"></span>
+                        <h2 class="card__title">How to Win Friends and Influence People</h2>
+                        <h3 class="card__author">Author: <span class="card__author-span">Dale Carnegie</span></h3>
+                        <h3 class="card__pages">Number of pages: <span class="card__pages-span">291</span> </h3>
+                        <h3 class="card__publish-date">originally published: <span class="card__publish-date-span">01/10/1936</span></h3>
+                        <button class="card__button">Read</button>
+                      `
+
+
 }
 
