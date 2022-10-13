@@ -65,7 +65,7 @@ function addBookToLibrary() {
   let buttonAllow = false;
   if(inputTitle.value !== '' && inputAuthor.value !== '' && inputPages.value !== '' && inputDate.value !== '') {
     buttonAllow = true;
-    console.log(buttonAllow)
+    // console.log(buttonAllow)
   }
   if(buttonAllow === true) {
     const book = new Book(`${inputTitle.value}`, `${inputAuthor.value}`, `${inputPages.value}`, `${inputDate.value}`, `${inputRead.checked}`)
@@ -83,6 +83,15 @@ function empyInputs() {
   inputDate.value = ''
   inputRead.checked = false;
 }
+window.addEventListener('click', abc); // experimental
+
+function abc() {
+  for(let i = 0; i < myLibrary.length; i++) {
+    console.log(myLibrary[i].title)  // perhaps loop through  the array to check if item exists using .includes(), if not then add 
+  }
+}
+
+
 
 function createCard() {
   const container = document.getElementById('card-container')
