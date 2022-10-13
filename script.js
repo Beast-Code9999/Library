@@ -54,7 +54,6 @@ inputDate.addEventListener('input', () => {
 })
 //
 
-
 let myLibrary = [];
 
 function Book(title, author, pages, date, read) {
@@ -66,6 +65,6 @@ function Book(title, author, pages, date, read) {
 }
 
 function addBookToLibrary() {
-  // do stuff here
+  const container = document.getElementById('card-container')
 }
 
