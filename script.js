@@ -44,19 +44,13 @@ function checkInputNum() {
   }
 }
 // check if every input is valid
-let buttonAllow = false;
-function validate() {
-  if(inputTitle.value !== '' && inputAuthor.value !== '' && inputPages.value !== '' && inputDate.value !== '') {
-    buttonAllow = true;
-  }
-}
 
-window.addEventListener('click', () => {
-  console.log('input title value: ', inputTitle.value)
-  console.log('input author value: ', inputAuthor.value)
-  console.log('input pages value: ', inputPages.value)
-  console.log('input date value: ', inputDate.value)
-})
+// window.addEventListener('click', () => {
+  //   console.log('input title value: ', inputTitle.value)
+//   console.log('input author value: ', inputAuthor.value)
+//   console.log('input pages value: ', inputPages.value)
+//   console.log('input date value: ', inputDate.value)
+// })
 
 let myLibrary = [];
 
@@ -68,12 +62,24 @@ function Book(title, author, pages, date, read) {
   this.read = read
 }
 
+
 addBtn.addEventListener('click', addBookToLibrary)
 function addBookToLibrary() {
-  validate()
-  const book = new Book('hello', 'what', '123', '12//12//12', 'read')
-  myLibrary.push(book)
-  console.log(myLibrary)
+  let buttonAllow = false;
+  if(inputTitle.value !== '' && inputAuthor.value !== '' && inputPages.value !== '' && inputDate.value !== '') {
+    buttonAllow = true;
+    console.log(buttonAllow)
+  }
+  if(buttonAllow === true) {
+    const book = new Book(`${inputTitle.value}`, `${inputAuthor.value}`, `${inputTitle.value}`, `${inputTitle.value}`, 'read')
+    myLibrary.push(book)
+    console.log(myLibrary)
+    buttonAllow = false;
+    inputText.forEach( input => {
+      input.textContent = ''
+      input.value = ''
+    })
+  }
 }
 
 function createCard() {
