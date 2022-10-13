@@ -80,6 +80,8 @@ function empyInputs() {
     input.textContent = ''
     input.value = ''
   })
+  inputDate.value = ''
+  inputRead.checked = false;
 }
 
 function createCard() {
