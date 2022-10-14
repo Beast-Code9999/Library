@@ -156,7 +156,7 @@ window.addEventListener("click", (e) => {
   }
   // console.log(e.target.parentNode.childNodes[3].textContent)
 })
-
+// check if library read status remains or change 
 window.addEventListener('click', () => {
-  
+  console.log(myLibrary)
 })
