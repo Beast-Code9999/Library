@@ -65,7 +65,7 @@ function changeInputReadValue() {
     return 'read'
   }
   else {
-    return 'not yet'
+    return 'not read'
   }
 }
 // push book to button on addBtn click
@@ -119,10 +119,13 @@ function createCard(title, author, pages, date, read) {
     content.classList.add('card--read');
     content.lastElementChild.classList.add('card__button--read')
   }
-  else if( read === 'not yet' ) {
+  else if( read === 'not read' ) {
     content.classList.add('card--unread');
     content.lastElementChild.classList.add('card__button--unread')
   }
+}
+function addReadCSS() {
+  
 }
 // change read status
 window.addEventListener("click", (e) => {
@@ -135,15 +138,25 @@ window.addEventListener("click", (e) => {
         if( myLibrary[i].read === 'read' ) {
           target.classList.remove('card__button--read');
           target.classList.add('card__button--unread');
+          target.textContent = 'not read'
+          target.parentNode.classList.remove('card--read')
+          target.parentNode.classList.add('card--unread')
           myLibrary[i].read = 'not read';
         }
         else if( myLibrary[i].read !== 'read' ) {
           target.classList.remove('card__button--unread');
           target.classList.add('card__button--read');
+          target.textContent = 'read'
+          target.parentNode.classList.remove('card--unread')
+          target.parentNode.classList.add('card--read')
           myLibrary[i].read = 'read'; 
         }
       }
     }
   }
   // console.log(e.target.parentNode.childNodes[3].textContent)
+})
+
+window.addEventListener('click', () => {
+  
 })
