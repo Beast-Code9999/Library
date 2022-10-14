@@ -49,7 +49,7 @@ let myLibrary = [
     title: 'Harry Potter and the Prisoner of Azkaban',
     author: 'J.K Rowling',
     pages: '317',
-    date: '19//07//1999',
+    date: '1999-07-19',
     read: 'read',
 
   }
