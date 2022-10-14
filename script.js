@@ -63,6 +63,15 @@ function Book(title, author, pages, date, read) {
   this.read = read
 }
 
+function changeInputReadValue() {
+  if(inputRead.checked === true) {
+    return 'read'
+  }
+  else {
+    return 'not yet'
+  }
+}
+
 addBtn.addEventListener('click', addBookToLibrary)
 function addBookToLibrary() {
   let buttonAllow = false;
@@ -71,7 +80,7 @@ function addBookToLibrary() {
     // console.log(buttonAllow)
   }
   if(buttonAllow === true) {
-    const book = new Book(`${inputTitle.value}`, `${inputAuthor.value}`, `${inputPages.value}`, `${inputDate.value}`, `${inputRead.checked}`)
+    const book = new Book(`${inputTitle.value}`, `${inputAuthor.value}`, `${inputPages.value}`, `${inputDate.value}`, `${changeInputReadValue()}`)
     myLibrary.push(book)
     console.log(myLibrary)
     eraseContainerContent()
@@ -84,6 +93,7 @@ function empyInputs() {
   inputText.forEach( input => {
     input.textContent = ''
     input.value = ''
+    input.nextElementSibling.classList.remove('input__text-notnull');
   })
   inputDate.value = ''
   inputRead.checked = false;
