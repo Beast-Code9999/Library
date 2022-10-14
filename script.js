@@ -70,6 +70,7 @@ function addBookToLibrary() {
     const book = new Book(`${inputTitle.value}`, `${inputAuthor.value}`, `${inputPages.value}`, `${inputDate.value}`, `${inputRead.checked}`)
     myLibrary.push(book)
     console.log(myLibrary)
+    eraseContainerContent()
     abc()
     buttonAllow = false;
     empyInputs() 
@@ -95,13 +96,17 @@ function abc() {
 window.addEventListener('click', cd)
 
 function cd() {
-  for(let i = 0; i < myLibrary.length; i++) {
-    console.log(myLibrary[i].title)
+  for(let item in myLibrary) {
+    console.log(myLibrary[item])
+    console.log(myLibrary[item].title)
   }
+}
+const container = document.getElementById('card-container')
+function eraseContainerContent() {
+  container.innerHTML = ''
 }
 
 function createCard(title, author, pages, date, read) {
-  const container = document.getElementById('card-container')
   const content = document.createElement('div');
   content.classList.add('card');
   container.appendChild(content);
