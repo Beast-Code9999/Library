@@ -17,7 +17,6 @@ const deleteAll = document.getElementById('delete-all');
 // start main selection
 const settingsDate = document.getElementById('settings__date');
 const settingsAscDesc = document.getElementById('settings__ascending-descending');
-console.log(settingsAscDesc)
 // end of mmain selection
 // preventDefault behaviour of form on submit to prevent reload
 function handleForm(event) { event.preventDefault() }
@@ -43,7 +42,7 @@ function checkInputNum() {
     inputPages.nextElementSibling.classList.remove('input__label-pages');
   }
 }
-
+// where all books are going to be pushed into
 let myLibrary = [
   {
     title: 'Harry Potter and the Prisoner of Azkaban',
@@ -54,7 +53,7 @@ let myLibrary = [
 
   }
 ];
-
+// Constructor function
 function Book(title, author, pages, date, read) {
   this.title = title
   this.author = author
@@ -62,7 +61,6 @@ function Book(title, author, pages, date, read) {
   this.date = date
   this.read = read
 }
-
 function changeInputReadValue() {
   if(inputRead.checked === true) {
     return 'read'
@@ -71,7 +69,7 @@ function changeInputReadValue() {
     return 'not yet'
   }
 }
-
+// push book to button on addBtn click
 addBtn.addEventListener('click', addBookToLibrary)
 function addBookToLibrary() {
   let buttonAllow = false;
@@ -82,7 +80,6 @@ function addBookToLibrary() {
   if(buttonAllow === true) {
     const book = new Book(`${inputTitle.value}`, `${inputAuthor.value}`, `${inputPages.value}`, `${inputDate.value}`, `${changeInputReadValue()}`)
     myLibrary.push(book)
-    console.log(myLibrary)
     eraseContainerContent()
     loopAndCreateCard()
     buttonAllow = false;
@@ -98,20 +95,17 @@ function empyInputs() {
   inputDate.value = ''
   inputRead.checked = false;
 }
-
 function loopAndCreateCard() {
   for(let i = 0; i < myLibrary.length; i++) {
     console.log(myLibrary[i].title)  
     createCard(myLibrary[i].title, myLibrary[i].author, myLibrary[i].pages, myLibrary[i].date, myLibrary[i].read)
   }
 }
-
+// create and erase card from container
 const container = document.getElementById('card-container')
-
 function eraseContainerContent() {
   container.innerHTML = ''
 }
-
 function createCard(title, author, pages, date, read) {
   const content = document.createElement('div');
   content.classList.add('card');
@@ -124,4 +118,13 @@ function createCard(title, author, pages, date, read) {
                         <h3 class="card__publish-date">originally published: <span class="card__publish-date-span">${date}</span></h3>
                         <button class="card__button">${read}</button>
                       `
+  if( read === 'read' ) {
+    content.classList.add('card--read');
+    content.lastElementChild.classList.add('card__button--read')
+  }
+  else if( read === 'not yet' ) {
+    content.classList.add('card--unread');
+    content.lastElementChild.classList.add('card__button--unread')
+  }
 }
+// 
