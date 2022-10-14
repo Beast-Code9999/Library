@@ -43,14 +43,17 @@ function checkInputNum() {
     inputPages.nextElementSibling.classList.remove('input__label-pages');
   }
 }
-// window.addEventListener('click', () => {
-  //   console.log('input title value: ', inputTitle.value)
-//   console.log('input author value: ', inputAuthor.value)
-//   console.log('input pages value: ', inputPages.value)
-//   console.log('input date value: ', inputDate.value)
-// })
 
-let myLibrary = [];
+let myLibrary = [
+  {
+    title: 'Harry Potter and the Prisoner of Azkaban',
+    author: 'J.K Rowling',
+    pages: '317',
+    date: '19//07//1999',
+    read: 'read',
+
+  }
+];
 
 function Book(title, author, pages, date, read) {
   this.title = title
@@ -59,6 +62,7 @@ function Book(title, author, pages, date, read) {
   this.date = date
   this.read = read
 }
+
 addBtn.addEventListener('click', addBookToLibrary)
 function addBookToLibrary() {
   let buttonAllow = false;
@@ -71,7 +75,7 @@ function addBookToLibrary() {
     myLibrary.push(book)
     console.log(myLibrary)
     eraseContainerContent()
-    abc()
+    loopAndCreateCard()
     buttonAllow = false;
     empyInputs() 
   }
@@ -84,24 +88,16 @@ function empyInputs() {
   inputDate.value = ''
   inputRead.checked = false;
 }
-// window.addEventListener('click', abc); // experimental
 
-function abc() {
+function loopAndCreateCard() {
   for(let i = 0; i < myLibrary.length; i++) {
-    console.log(myLibrary[i].title)  // perhaps loop through  the array to check if item exists using .includes(), if not then add 
+    console.log(myLibrary[i].title)  
     createCard(myLibrary[i].title, myLibrary[i].author, myLibrary[i].pages, myLibrary[i].date, myLibrary[i].read)
   }
 }
 
-window.addEventListener('click', cd)
-
-function cd() {
-  for(let item in myLibrary) {
-    console.log(myLibrary[item])
-    console.log(myLibrary[item].title)
-  }
-}
 const container = document.getElementById('card-container')
+
 function eraseContainerContent() {
   container.innerHTML = ''
 }
