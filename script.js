@@ -50,7 +50,6 @@ let myLibrary = [
     pages: '317',
     date: '1999-07-19',
     read: 'read',
-
   }
 ];
 // Constructor function
@@ -75,7 +74,6 @@ function addBookToLibrary() {
   let buttonAllow = false;
   if(inputTitle.value !== '' && inputAuthor.value !== '' && inputPages.value !== '' && inputDate.value !== '') {
     buttonAllow = true;
-    // console.log(buttonAllow)
   }
   if(buttonAllow === true) {
     const book = new Book(`${inputTitle.value}`, `${inputAuthor.value}`, `${inputPages.value}`, `${inputDate.value}`, `${changeInputReadValue()}`)
@@ -97,7 +95,6 @@ function empyInputs() {
 }
 function loopAndCreateCard() {
   for(let i = 0; i < myLibrary.length; i++) {
-    console.log(myLibrary[i].title)  
     createCard(myLibrary[i].title, myLibrary[i].author, myLibrary[i].pages, myLibrary[i].date, myLibrary[i].read)
   }
 }
@@ -116,7 +113,7 @@ function createCard(title, author, pages, date, read) {
                         <h3 class="card__author">Author: <span class="card__author-span">${author}</span></h3>
                         <h3 class="card__pages">Number of pages: <span class="card__pages-span">${pages}</span> </h3>
                         <h3 class="card__publish-date">originally published: <span class="card__publish-date-span">${date}</span></h3>
-                        <button class="card__button">${read}</button>
+                        <button class="card__button" id="status-btn">${read}</button>
                       `
   if( read === 'read' ) {
     content.classList.add('card--read');
@@ -127,4 +124,26 @@ function createCard(title, author, pages, date, read) {
     content.lastElementChild.classList.add('card__button--unread')
   }
 }
-// 
+// change read status
+window.addEventListener("click", (e) => {
+  // console.log(e.target)
+  const target = e.target;
+  if( target.id === 'status-btn' ) {
+    for(let i = 0; i < myLibrary.length; i++) {
+      console.log(myLibrary[i])
+      if(myLibrary[i].title === target.parentNode.childNodes[3].textContent) {
+        if( myLibrary[i].read === 'read' ) {
+          target.classList.remove('card__button--read');
+          target.classList.add('card__button--unread');
+          myLibrary[i].read = 'not read';
+        }
+        else if( myLibrary[i].read !== 'read' ) {
+          target.classList.remove('card__button--unread');
+          target.classList.add('card__button--read');
+          myLibrary[i].read = 'read'; 
+        }
+      }
+    }
+  }
+  // console.log(e.target.parentNode.childNodes[3].textContent)
+})
