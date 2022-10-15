@@ -109,7 +109,7 @@ function createCard(title, author, pages, date, read, counter) {
   content.classList.add('card');
   container.appendChild(content);
   content.innerHTML = `              
-                        <span class="card__icon" data-counter="${counter}"><img src="./icon/close-bold-svgrepo-com.svg" alt="close-icon"></span>
+                        <span class="card__icon" data-counter="${counter}" id="delete-span"><img data-counter="${counter} id="delete-img" src="./icon/close-bold-svgrepo-com.svg" alt="close-icon"></span>
                         <h2 class="card__title">${title}</h2>
                         <h3 class="card__author">Author: <span class="card__author-span">${author}</span></h3>
                         <h3 class="card__pages">Number of pages: <span class="card__pages-span">${pages}</span> </h3>
@@ -139,7 +139,6 @@ window.addEventListener("click", (e) => {
 function toggleReadStatus(target) {
   if( target.id === 'status-btn' ) {
     for(let i = 0; i < myLibrary.length; i++) {
-      console.log(myLibrary[i])
       if(myLibrary[i].title === target.parentNode.childNodes[3].textContent) {
         if( myLibrary[i].read === 'read' ) {
           target.classList.remove('card__button--read');
@@ -166,8 +165,8 @@ window.addEventListener( 'click', (e) => {
   console.log( e.target )
 })
 // delete card
-function deleteCard() {
-  if( target ) {
+function deleteCard( target ) {
+  if( target.id === 'delete-img' || target.id === 'delete-span' ) {
 
   }
 }
