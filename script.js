@@ -163,7 +163,7 @@ function toggleReadStatus(target) {
 }
 
 window.addEventListener( 'click', (e) => {
-  console.log(myLibrary )
+  console.log( e.target )
 })
 // delete card
 function deleteCard() {
