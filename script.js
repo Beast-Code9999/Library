@@ -160,11 +160,10 @@ function toggleReadStatus(target) {
     }
   }
 }
-
-window.addEventListener( 'click', (e) => {
-  console.log( e.target.dataset.counter )
-  console.log(myLibrary)
-})
+// window.addEventListener( 'click', (e) => {
+//   console.log( e.target.dataset.counter )
+//   console.log(myLibrary)
+// })
 // delete card
 function deleteCard( target ) {
   if( target.id === 'delete-img' || target.id === 'delete-span' ) {
@@ -172,4 +171,10 @@ function deleteCard( target ) {
     eraseContainerContent()
     loopAndCreateCard()
   }
+}
+// delete all of the cards
+deleteAll.addEventListener('click', deleteAllCards)
+function deleteAllCards() {
+  myLibrary = []
+  eraseContainerContent()
 }
