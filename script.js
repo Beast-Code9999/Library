@@ -131,6 +131,11 @@ function addReadCSS() {
 window.addEventListener("click", (e) => {
   // console.log(e.target)
   const target = e.target;
+  toggleReadStatus(target);
+  // console.log(e.target.parentNode.childNodes[3].textContent)
+})
+// toggle read or unread on card
+function toggleReadStatus(target) {
   if( target.id === 'status-btn' ) {
     for(let i = 0; i < myLibrary.length; i++) {
       console.log(myLibrary[i])
@@ -154,9 +159,6 @@ window.addEventListener("click", (e) => {
       }
     }
   }
-  // console.log(e.target.parentNode.childNodes[3].textContent)
-})
-// check if library read status remains or change 
-window.addEventListener('click', () => {
-  console.log(myLibrary)
-})
+}
+// delete card
+
