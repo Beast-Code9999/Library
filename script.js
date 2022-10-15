@@ -9,9 +9,6 @@ const inputText = document.querySelectorAll('.input__text');
 const form = document.querySelector('form');
 // end of sidebar selection
 //start of header selection
-const totalNum = document.getElementById('total-num');
-const readNum = document.getElementById('read-num');
-const unreadNum = document.getElementById('unread-num');
 const deleteAll = document.getElementById('delete-all');
 // end of header selection
 // start main selection
@@ -181,19 +178,22 @@ function deleteAllCards() {
 }
 // count how many books are there
 function countBooks() {
-  totalNum.textContent = myLibrary.length
-  let unreadBooksCounter = 0
-  let readBooksCounter = 0
-  for( let i = 0; i < myLibrary.length; i++ ) {
-    if( myLibrary[1].read === 'read' ) {
-      readBooksCounter++
-      readNum.textContent = readBooksCounter
-
-    }
+  const totalNum = document.getElementById('total-num');
+  const readNum = document.getElementById('read-num');
+  const unreadNum = document.getElementById('unread-num');
+  totalNum.textContent = myLibrary.length;
+  let readBooksCounter = 0;
+  let unreadBooksCounter = 0;
+  readNum.textContent = 0;
+  unreadNum.textContent = 0;
+  for( let i = 0; i < myLibrary.length; i += 1 ) {
+    if( myLibrary[i].read === 'read' ) {
+      readBooksCounter += 1;
+      readNum.textContent = readBooksCounter;
+    } 
     else if( myLibrary[i].read !== 'read' ) {
-      unreadBooksCounter++
-      unreadNum.textContent = unreadBooksCounter
-
+      unreadBooksCounter += 1;
+      unreadNum.textContent = unreadBooksCounter;
     }
   }
 }
