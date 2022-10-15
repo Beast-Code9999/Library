@@ -113,7 +113,7 @@ function createCard(title, author, pages, date, read, counter) {
                         <h2 class="card__title">${title}</h2>
                         <h3 class="card__author">Author: <span class="card__author-span">${author}</span></h3>
                         <h3 class="card__pages">Number of pages: <span class="card__pages-span">${pages}</span> </h3>
-                        <h3 class="card__publish-date">originally published: <span class="card__publish-date-span">${date}</span></h3>
+                        <h3 class="card__publish-date">Originally published: <span class="card__publish-date-span">${date}</span></h3>
                         <button class="card__button" id="status-btn">${read}</button>
                       `
   if( read === 'read' ) {
