@@ -95,7 +95,7 @@ function empyInputs() {
 }
 function loopAndCreateCard() {
   for(let i = 0; i < myLibrary.length; i++) {
-    createCard(myLibrary[i].title, myLibrary[i].author, myLibrary[i].pages, myLibrary[i].date, myLibrary[i].read)
+    createCard(myLibrary[i].title, myLibrary[i].author, myLibrary[i].pages, myLibrary[i].date, myLibrary[i].read, i)
   }
 }
 // create and erase card from container
@@ -103,12 +103,13 @@ const container = document.getElementById('card-container')
 function eraseContainerContent() {
   container.innerHTML = ''
 }
-function createCard(title, author, pages, date, read) {
+
+function createCard(title, author, pages, date, read, counter) {
   const content = document.createElement('div');
   content.classList.add('card');
   container.appendChild(content);
   content.innerHTML = `              
-                        <span class="card__icon"><img src="./icon/close-bold-svgrepo-com.svg" alt="close-icon"></span>
+                        <span class="card__icon" data-counter="${counter}"><img src="./icon/close-bold-svgrepo-com.svg" alt="close-icon"></span>
                         <h2 class="card__title">${title}</h2>
                         <h3 class="card__author">Author: <span class="card__author-span">${author}</span></h3>
                         <h3 class="card__pages">Number of pages: <span class="card__pages-span">${pages}</span> </h3>
@@ -132,7 +133,7 @@ window.addEventListener("click", (e) => {
   // console.log(e.target)
   const target = e.target;
   toggleReadStatus(target);
-  // console.log(e.target.parentNode.childNodes[3].textContent)
+
 })
 // toggle read or unread on card
 function toggleReadStatus(target) {
@@ -160,5 +161,13 @@ function toggleReadStatus(target) {
     }
   }
 }
-// delete card
 
+window.addEventListener( 'click', (e) => {
+  console.log(myLibrary )
+})
+// delete card
+function deleteCard() {
+  if( target ) {
+
+  }
+}
