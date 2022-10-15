@@ -134,6 +134,7 @@ window.addEventListener("click", (e) => {
   const target = e.target;
   toggleReadStatus(target);
   deleteCard( target )
+  countBooks()
 })
 // toggle read or unread on card
 function toggleReadStatus(target) {
@@ -164,7 +165,7 @@ function toggleReadStatus(target) {
 //   console.log( e.target.dataset.counter )
 //   console.log(myLibrary)
 // })
-// delete card
+// delete individual card
 function deleteCard( target ) {
   if( target.id === 'delete-img' || target.id === 'delete-span' ) {
     myLibrary.splice(Number(target.dataset.counter), 1)
@@ -177,4 +178,22 @@ deleteAll.addEventListener('click', deleteAllCards)
 function deleteAllCards() {
   myLibrary = []
   eraseContainerContent()
+}
+// count how many books are there
+function countBooks() {
+  totalNum.textContent = myLibrary.length
+  let unreadBooksCounter = 0
+  let readBooksCounter = 0
+  for( let i = 0; i < myLibrary.length; i++ ) {
+    if( myLibrary[1].read === 'read' ) {
+      readBooksCounter++
+      readNum.textContent = readBooksCounter
+
+    }
+    else if( myLibrary[i].read !== 'read' ) {
+      unreadBooksCounter++
+      unreadNum.textContent = unreadBooksCounter
+
+    }
+  }
 }
