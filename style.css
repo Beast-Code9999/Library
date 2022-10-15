@@ -207,6 +207,8 @@ body {
     font-size: 2rem;
     text-transform: uppercase;
     color: var(--color-text);
+    border-left: 2px dashed var(--color-text);
+    border-bottom: 2px dashed var(--color-text);
 }
 .header__span {
     font-size: 2.4rem;
@@ -245,6 +247,7 @@ body {
     grid-row: 2 / 3;
     display: grid;
     grid-template-rows: 15% auto;
+    border-left: 2px dashed var(--color-text);
 }
 
 .main__legend {
@@ -254,6 +257,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 3rem;
+    border-bottom: 2px dashed var(--color-text);
 }
 .settings span {
     font-size: 1.6rem;
