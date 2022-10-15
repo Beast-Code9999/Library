@@ -133,7 +133,7 @@ window.addEventListener("click", (e) => {
   // console.log(e.target)
   const target = e.target;
   toggleReadStatus(target);
-
+  deleteCard( target )
 })
 // toggle read or unread on card
 function toggleReadStatus(target) {
@@ -162,11 +162,14 @@ function toggleReadStatus(target) {
 }
 
 window.addEventListener( 'click', (e) => {
-  console.log( e.target )
+  console.log( e.target.dataset.counter )
+  console.log(myLibrary)
 })
 // delete card
 function deleteCard( target ) {
   if( target.id === 'delete-img' || target.id === 'delete-span' ) {
-
+    myLibrary.splice(Number(target.dataset.counter), 1)
+    eraseContainerContent()
+    loopAndCreateCard()
   }
 }
