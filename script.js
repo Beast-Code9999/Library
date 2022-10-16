@@ -198,7 +198,7 @@ function countBooks() {
   }
 }
 // reorder myLibrary
-settingsDate.addEventListener('click', (e) => {
+settingsDate.addEventListener('change', (e) => {
   console.log(e.target.value)
   const value = e.target.value
   if( value === 'created-date' ) {
