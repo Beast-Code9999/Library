@@ -210,15 +210,9 @@ function changeToDateCreated() {
 }
 
 function changeToDatePublished() {
-  oldestBook = {}
-  while( myLibrary.length !== 0 ) {
-    for( let i = 0; i < myLibrary.length; i++ ) {
-      console.log( (myLibrary[i].date).substr(0, 4) )
-      if( myLibrary[i].date) {
+  const newLibrary = myLibrary
+  let oldestBook = {}
 
-      }
-    }
-  }
 } 
 
 window.addEventListener( 'click', (e) => {
