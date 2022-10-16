@@ -158,10 +158,6 @@ function toggleReadStatus(target) {
     }
   }
 }
-// window.addEventListener( 'click', (e) => {
-//   console.log( e.target.dataset.counter )
-//   console.log(myLibrary)
-// })
 // delete individual card
 function deleteCard( target ) {
   if( target.id === 'delete-img' || target.id === 'delete-span' ) {
@@ -214,5 +210,18 @@ function changeToDateCreated() {
 }
 
 function changeToDatePublished() {
-  console.log('hello')
+  oldestBook = {}
+  while( myLibrary.length !== 0 ) {
+    for( let i = 0; i < myLibrary.length; i++ ) {
+      console.log( (myLibrary[i].date).substr(0, 4) )
+      if( myLibrary[i].date) {
+
+      }
+    }
+  }
 } 
+
+window.addEventListener( 'click', (e) => {
+
+  console.log(myLibrary[1])
+})
