@@ -202,9 +202,17 @@ settingsDate.addEventListener('change', (e) => {
   console.log(e.target.value)
   const value = e.target.value
   if( value === 'created-date' ) {
-    console.log('hi')
+    changeToDateCreated()
   }
   else if( value === 'published-date' ) {
-    console.log('hello')
+    changeToDatePublished()
   }
 })
+
+function changeToDateCreated() {
+  console.log('hi')
+}
+
+function changeToDatePublished() {
+  console.log('hello')
+} 
