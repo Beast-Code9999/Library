@@ -16,8 +16,8 @@ const settingsDate = document.getElementById('settings__date');
 const settingsAscDesc = document.getElementById('settings__ascending-descending');
 // end of mmain selection
 // preventDefault behaviour of form on submit to prevent reload
-function handleForm(event) { event.preventDefault() }
 form.addEventListener('submit', handleForm)
+function handleForm(event) { event.preventDefault() }
 // input label dynamic adding or removing of css attribute 
 inputText.forEach( item => {
   item.addEventListener('input', () => {
@@ -197,3 +197,14 @@ function countBooks() {
     }
   }
 }
+// reorder myLibrary
+settingsDate.addEventListener('click', (e) => {
+  console.log(e.target.value)
+  const value = e.target.value
+  if( value === 'created-date' ) {
+    console.log('hi')
+  }
+  else if( value === 'published-date' ) {
+    console.log('hello')
+  }
+})
