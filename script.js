@@ -71,6 +71,11 @@ function addBookOrder() {
     myLibrary[i].order = i
   }
 }
+// book order status
+let dateCreated = true;
+let datePublished = false;
+let ascending = true;
+let descending = false;
 // push book to button on addBtn click
 addBtn.addEventListener('click', addBookToLibrary)
 function addBookToLibrary() {
@@ -86,6 +91,9 @@ function addBookToLibrary() {
     addBookOrder()
     buttonAllow = false;
     empyInputs() 
+  }
+  if( datePublished === true ) {
+    changeToDatePublished();
   }
 }
 function empyInputs() {
@@ -202,9 +210,13 @@ settingsDate.addEventListener('change', (e) => {
   const value = e.target.value
   if( value === 'created-date' ) {
     changeToDateCreated()
+    dateCreated = true;
+    datePublished = false;
   }
   else if( value === 'published-date' ) {
     changeToDatePublished()
+    datePublished = true;
+    dateCreated = false;
   }
 })
 
