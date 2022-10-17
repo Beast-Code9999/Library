@@ -88,7 +88,7 @@ function addBookToLibrary() {
     myLibrary.push(book)
     addBookOrder()
     eraseContainerContent()
-    loopAndCreateCard()
+    loopAndCreateCard(myLibrary)
     buttonAllow = false;
     empyInputs() 
   }
@@ -108,9 +108,9 @@ function empyInputs() {
   inputDate.value = ''
   inputRead.checked = false;
 }
-function loopAndCreateCard() {
-  for(let i = 0; i < myLibrary.length; i++) {
-    createCard(myLibrary[i].title, myLibrary[i].author, myLibrary[i].pages, myLibrary[i].date, myLibrary[i].read, i)
+function loopAndCreateCard(library) {
+  for(let i = 0; i < library.length; i++) {
+    createCard(library[i].title, library[i].author, library[i].pages, library[i].date, library[i].read, i)
   }
 }
 // create and erase card from container
@@ -177,7 +177,7 @@ function deleteCard( target ) {
   if( target.id === 'delete-img' || target.id === 'delete-span' ) {
     myLibrary.splice(Number(target.dataset.counter), 1)
     eraseContainerContent()
-    loopAndCreateCard()
+    loopAndCreateCard(myLibrary)
   }
 }
 // delete all of the cards
@@ -224,7 +224,8 @@ settingsDate.addEventListener('change', (e) => {
 })
 
 function changeToDateCreated() {
-  const sorted = myLibrary.sort( function( book1, book2 ) {
+  const sorted = JSON.parse(JSON.stringify(myLibrary)) 
+  sorted.sort( function( book1, book2 ) {
     if( book1.order > book2.order ) {
       return 1
     }
@@ -232,13 +233,13 @@ function changeToDateCreated() {
       return -1
     }
   })
-  myLibrary = sorted;
   eraseContainerContent()
-  loopAndCreateCard()
+  loopAndCreateCard(sorted)
 }
 
 function changeToDatePublished() {
-  const sorted = myLibrary.sort( function( book1, book2 ) {
+  const sorted = JSON.parse(JSON.stringify(myLibrary)) 
+  sorted.sort( function( book1, book2 ) {
     if( Number(book1.date.substr(0,4)) > Number(book2.date.substr(0,4)) )  {
       return 1
     } 
@@ -262,9 +263,8 @@ function changeToDatePublished() {
       return -1
     }
   })
-  myLibrary = sorted;
   eraseContainerContent()
-  loopAndCreateCard()
+  loopAndCreateCard(sorted)
 } 
 
 window.addEventListener( 'click', (e) => {
