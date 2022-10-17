@@ -92,12 +92,12 @@ function addBookToLibrary() {
     buttonAllow = false;
     empyInputs() 
   }
-  // if( datePublished === true ) {
-  //   changeToDatePublished();
-  // }
-  // if( dateCreated === true ) {
-  //   changeToDateCreated()
-  // }
+  if( datePublished === true ) {
+    changeToDatePublished();
+  }
+  if( dateCreated === true ) {
+    changeToDateCreated()
+  }
 }
 function empyInputs() {
   inputText.forEach( input => {
