@@ -173,7 +173,7 @@ function toggleReadStatus(target) {
   }
 }
 // delete individual card
-function deleteCard( target ) {
+function deleteCard( target ) { /// NEEDS MODIFICATION
   if( target.id === 'delete-img' || target.id === 'delete-span' ) {
     myLibrary.splice(Number(target.dataset.counter), 1)
     eraseContainerContent()
