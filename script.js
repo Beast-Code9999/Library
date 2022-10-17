@@ -234,8 +234,9 @@ function changeToDatePublished() {
       return -1
     }
   })
-
-
+  myLibrary = sorted;
+  eraseContainerContent()
+  loopAndCreateCard()
 } 
 
 
