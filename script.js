@@ -86,15 +86,18 @@ function addBookToLibrary() {
   if(buttonAllow === true) {
     const book = new Book(`${inputTitle.value}`, `${inputAuthor.value}`, `${inputPages.value}`, `${inputDate.value}`, `${changeInputReadValue()}`)
     myLibrary.push(book)
+    addBookOrder()
     eraseContainerContent()
     loopAndCreateCard()
-    addBookOrder()
     buttonAllow = false;
     empyInputs() 
   }
-  if( datePublished === true ) {
-    changeToDatePublished();
-  }
+  // if( datePublished === true ) {
+  //   changeToDatePublished();
+  // }
+  // if( dateCreated === true ) {
+  //   changeToDateCreated()
+  // }
 }
 function empyInputs() {
   inputText.forEach( input => {
