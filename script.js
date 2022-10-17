@@ -47,7 +47,7 @@ let myLibrary = [
     pages: '317',
     date: '1999-07-19',
     read: 'read',
-  }
+  },
 ];
 // Constructor function
 function Book(title, author, pages, date, read) {
@@ -210,13 +210,37 @@ function changeToDateCreated() {
 }
 
 function changeToDatePublished() {
-  const sorted = myLibrary.sort( function( book1, book2) {
-    
+  const sorted = myLibrary.sort( function( book1, book2 ) {
+    if( Number(book1.date.substr(0,4)) > Number(book2.date.substr(0,4)) )  {
+      return 1
+    } 
+    else if( Number(book1.date.substr(0,4)) === Number(book2.date.substr(0,4)) ) {
+        if( Number(book1.date.substr(5,2)) > Number(book2.date.substr(5,2)) ) {
+          return 1
+        } 
+        else if( Number(book1.date.substr(5,2)) === Number(book2.date.substr(5,2)) ) {
+          if( Number(book1.date.substr(8,2)) > Number(book2.date.substr(8,2)) ) {
+            return 1
+          }
+          else {
+            return -1
+          }
+        }
+        else {
+          return -1
+        }
+    }
+    else {
+      return -1
+    }
   })
+
 
 } 
 
-window.addEventListener( 'click', (e) => {
 
-  console.log(myLibrary[1])
-})
+
+// window.addEventListener( 'click', (e) => {
+
+//   console.log(myLibrary[0])
+// })
