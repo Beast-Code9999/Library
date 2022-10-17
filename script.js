@@ -65,6 +65,12 @@ function changeInputReadValue() {
     return 'not read'
   }
 }
+// add order of book by date created 
+function addBookOrder() {
+  for( let i = 0; i < myLibrary.length; i++ ) {
+    myLibrary[i].order = i
+  }
+}
 // push book to button on addBtn click
 addBtn.addEventListener('click', addBookToLibrary)
 function addBookToLibrary() {
@@ -77,6 +83,7 @@ function addBookToLibrary() {
     myLibrary.push(book)
     eraseContainerContent()
     loopAndCreateCard()
+    addBookOrder()
     buttonAllow = false;
     empyInputs() 
   }
@@ -100,7 +107,6 @@ const container = document.getElementById('card-container')
 function eraseContainerContent() {
   container.innerHTML = ''
 }
-
 function createCard(title, author, pages, date, read, counter) {
   const content = document.createElement('div');
   content.classList.add('card');
@@ -121,9 +127,6 @@ function createCard(title, author, pages, date, read, counter) {
     content.classList.add('card--unread');
     content.lastElementChild.classList.add('card__button--unread')
   }
-}
-function addReadCSS() {
-  
 }
 // change read status
 window.addEventListener("click", (e) => {
@@ -239,9 +242,7 @@ function changeToDatePublished() {
   loopAndCreateCard()
 } 
 
+window.addEventListener( 'click', (e) => {
 
-
-// window.addEventListener( 'click', (e) => {
-
-//   console.log(myLibrary[0])
-// })
+  console.log(myLibrary)
+})
