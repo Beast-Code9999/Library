@@ -210,9 +210,9 @@ function changeToDateCreated() {
 }
 
 function changeToDatePublished() {
-  const newLibrary = myLibrary
-  let oldestBook = {}
-  
+  const sorted = myLibrary.sort( function( book1, book2) {
+    
+  })
 
 } 
 
