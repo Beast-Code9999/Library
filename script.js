@@ -221,7 +221,17 @@ settingsDate.addEventListener('change', (e) => {
 })
 
 function changeToDateCreated() {
-  console.log('hi')
+  const sorted = myLibrary.sort( function( book1, book2 ) {
+    if( book1.order > book2.order ) {
+      return 1
+    }
+    else {
+      return -1
+    }
+  })
+  myLibrary = sorted;
+  eraseContainerContent()
+  loopAndCreateCard()
 }
 
 function changeToDatePublished() {
