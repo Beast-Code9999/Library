@@ -175,9 +175,17 @@ function toggleReadStatus(target) {
 // delete individual card
 function deleteCard( target ) { /// NEEDS MODIFICATION
   if( target.id === 'delete-img' || target.id === 'delete-span' ) {
-    myLibrary.splice(Number(target.dataset.counter), 1)
-    eraseContainerContent()
-    loopAndCreateCard(myLibrary)
+    console.log( target.parentNode.parentNode.childNodes[3].textContent )
+    // for( let i = 0; i < myLibrary.length; i++ ) {
+    //   if( myLibrary[i].title === target.parentNode.parentNode.childNodes[3].textContent ) {
+
+    //   }
+
+    // }
+
+    // myLibrary.splice(Number(target.dataset.counter), 1)
+    // eraseContainerContent()
+    // loopAndCreateCard(myLibrary)
   }
 }
 // delete all of the cards
@@ -209,7 +217,7 @@ function countBooks() {
 }
 // reorder myLibrary
 settingsDate.addEventListener('change', (e) => {
-  console.log(e.target.value)
+  // console.log(e.target.value)
   const value = e.target.value
   if( value === 'created-date' ) {
     changeToDateCreated()
