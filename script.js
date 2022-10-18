@@ -74,8 +74,8 @@ function addBookOrder() {
 // book order status
 let dateCreated = true;
 let datePublished = false;
-let ascending = undefined;
-let descending = undefined;
+let ascending = true;
+let descending = false;
 // push book to button on addBtn click
 addBtn.addEventListener('click', addBookToLibrary)
 function addBookToLibrary() {
@@ -93,10 +93,19 @@ function addBookToLibrary() {
     empyInputs() 
   }
   if( datePublished === true ) {
-    changeToDatePublished();
+    if( ascending === true )
+      changeToDatePublished( 1, -1);
+    else if( descending === true ) {
+      changeToDatePublished( -1, 1);
+
+    }
   }
   if( dateCreated === true ) {
-    changeToDateCreated()
+    if( ascending === true )
+      changeToDateCreated( 1, -1);
+    else if( descending === true ) {
+      changeToDateCreated( -1, 1);
+    }
   }
 }
 function empyInputs() {
@@ -181,11 +190,20 @@ function deleteCard( target ) { /// NEEDS MODIFICATION
         myLibrary.splice(i, 1)
       }
     }
-    if( dateCreated === true ) {
-      changeToDateCreated()
+    if( datePublished === true ) {
+      if( ascending === true )
+        changeToDatePublished( 1, -1);
+      else if( descending === true ) {
+        changeToDatePublished( -1, 1);
+  
+      }
     }
-    else if( datePublished === true ) {
-      changeToDatePublished()
+    if( dateCreated === true ) {
+      if( ascending === true )
+        changeToDateCreated( 1, -1);
+      else if( descending === true ) {
+        changeToDateCreated( -1, 1);
+      }
     }
     // myLibrary.splice(Number(target.dataset.counter), 1)
     // eraseContainerContent()
@@ -224,68 +242,64 @@ settingsDate.addEventListener('change', (e) => {
   // console.log(e.target.value)
   const value = e.target.value
   if( value === 'created-date') {
-    changeToDateCreated()
+    if( ascending === true )
+      changeToDateCreated( 1, -1);
+    else if( descending === true ) {
+      changeToDateCreated( -1, 1);
+    }
     dateCreated = true;
     datePublished = false;
   }
   else if( value === 'published-date' ) {
-    changeToDatePublished()
+    if( ascending === true )
+      changeToDatePublished( 1, -1);
+    else if( descending === true ) {
+      changeToDatePublished( -1, 1);
+
+    }
     datePublished = true;
     dateCreated = false;
   }
 })
-function changeToDateCreated() {
+function changeToDateCreated( reverseNumOne, reverseNumTwo) {
   const sorted = JSON.parse(JSON.stringify(myLibrary)) 
   sorted.sort( function( book1, book2 ) {
     if( book1.order > book2.order ) {
-      return 1
+      return reverseNumOne
     }
     else {
-      return -1
+      return reverseNumTwo
     }
   })
-  if( ascending === true ) {
-    sorted.reverse()
-  }
-  if( descending === true ) {
-    sorted.reverse()
-  }
   eraseContainerContent()
   loopAndCreateCard(sorted)
 }
-function changeToDatePublished( reverse ) {
+function changeToDatePublished( reverseNumOne, reverseNumTwo ) {
   const sorted = JSON.parse(JSON.stringify(myLibrary)) 
   sorted.sort( function( book1, book2 ) {
     if( Number(book1.date.substr(0,4)) > Number(book2.date.substr(0,4)) )  {
-      return 1
+      return reverseNumOne
     } 
     else if( Number(book1.date.substr(0,4)) === Number(book2.date.substr(0,4)) ) {
         if( Number(book1.date.substr(5,2)) > Number(book2.date.substr(5,2)) ) {
-          return 1
+          return reverseNumOne
         } 
         else if( Number(book1.date.substr(5,2)) === Number(book2.date.substr(5,2)) ) {
           if( Number(book1.date.substr(8,2)) > Number(book2.date.substr(8,2)) ) {
-            return 1
+            return reverseNumOne
           }
           else {
-            return -1
+            return reverseNumTwo
           }
         }
         else {
-          return -1
+          return reverseNumTwo
         }
     }
     else {
-      return -1
+      return reverseNumTwo
     }
   })
-  if( ascending === true ) {
-    console.log( 'ascending true')
-    sorted.reverse()
-  }
-  if( descending === true ) {
-    sorted.reverse( 'descending true')
-  }
 
   eraseContainerContent()
   loopAndCreateCard(sorted)
@@ -296,13 +310,21 @@ settingsAscDesc.addEventListener('change', e => {
   const target = e.target.value
   changeToAscending( target )
   changeToDescending( target )
+  if( datePublished === true ) {
+    if( ascending === true )
+      changeToDatePublished( 1, -1);
+    else if( descending === true ) {
+      changeToDatePublished( -1, 1);
+
+    }
+  }
   if( dateCreated === true ) {
-    changeToDateCreated()
-  }
-  else if( datePublished === true ) {
-    changeToDatePublished()
-  }
-  // console.log(ascending, descending)
+    if( ascending === true )
+      changeToDateCreated( 1, -1);
+    else if( descending === true ) {
+      changeToDateCreated( -1, 1);
+    }
+  }  // console.log(ascending, descending)
 })
  
 function changeToAscending( target ) {
