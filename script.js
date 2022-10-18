@@ -74,8 +74,8 @@ function addBookOrder() {
 // book order status
 let dateCreated = true;
 let datePublished = false;
-let ascending = true;
-let descending = false;
+let ascending = undefined;
+let descending = undefined;
 // push book to button on addBtn click
 addBtn.addEventListener('click', addBookToLibrary)
 function addBookToLibrary() {
@@ -223,7 +223,7 @@ function countBooks() {
 settingsDate.addEventListener('change', (e) => {
   // console.log(e.target.value)
   const value = e.target.value
-  if( value === 'created-date' ) {
+  if( value === 'created-date') {
     changeToDateCreated()
     dateCreated = true;
     datePublished = false;
@@ -244,10 +244,16 @@ function changeToDateCreated() {
       return -1
     }
   })
+  if( ascending === true ) {
+    sorted.reverse()
+  }
+  if( descending === true ) {
+    sorted.reverse()
+  }
   eraseContainerContent()
   loopAndCreateCard(sorted)
 }
-function changeToDatePublished() {
+function changeToDatePublished( reverse ) {
   const sorted = JSON.parse(JSON.stringify(myLibrary)) 
   sorted.sort( function( book1, book2 ) {
     if( Number(book1.date.substr(0,4)) > Number(book2.date.substr(0,4)) )  {
@@ -273,20 +279,49 @@ function changeToDatePublished() {
       return -1
     }
   })
+  if( ascending === true ) {
+    console.log( 'ascending true')
+    sorted.reverse()
+  }
+  if( descending === true ) {
+    sorted.reverse( 'descending true')
+  }
+
   eraseContainerContent()
   loopAndCreateCard(sorted)
 } 
 // change order from ascending to descending and vice versa
-function changeToAscending() {
+settingsAscDesc.addEventListener('change', e => {
+  console.log( 'change working')
+  const target = e.target.value
+  changeToAscending( target )
+  changeToDescending( target )
+  if( dateCreated === true ) {
+    changeToDateCreated()
+  }
+  else if( datePublished === true ) {
+    changeToDatePublished()
+  }
+  // console.log(ascending, descending)
+})
+ 
+function changeToAscending( target ) {
+  if( target === 'ascending' ) { 
+    ascending = true;
+    descending = false;
 
+  }
 }
 
-function changeToDescending() {
-  
+function changeToDescending( target ) {
+  if( target === 'descending') {
+    descending = true;
+    ascending = false;
+  }
 }
 
 
 window.addEventListener( 'click', (e) => {
-
+  console.log(ascending, descending)
   console.log(myLibrary[0])
 })
