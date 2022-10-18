@@ -175,14 +175,18 @@ function toggleReadStatus(target) {
 // delete individual card
 function deleteCard( target ) { /// NEEDS MODIFICATION
   if( target.id === 'delete-img' || target.id === 'delete-span' ) {
-    console.log( target.parentNode.parentNode.childNodes[3].textContent )
-    // for( let i = 0; i < myLibrary.length; i++ ) {
-    //   if( myLibrary[i].title === target.parentNode.parentNode.childNodes[3].textContent ) {
-
-    //   }
-
-    // }
-
+    // console.log( target.parentNode.parentNode.childNodes[3].textContent )
+    for( let i = 0; i < myLibrary.length; i++ ) {
+      if( myLibrary[i].title === target.parentNode.parentNode.childNodes[3].textContent ) {
+        myLibrary.splice(i, 1)
+      }
+    }
+    if( dateCreated === true ) {
+      changeToDateCreated()
+    }
+    else if( datePublished === true ) {
+      changeToDatePublished()
+    }
     // myLibrary.splice(Number(target.dataset.counter), 1)
     // eraseContainerContent()
     // loopAndCreateCard(myLibrary)
@@ -277,5 +281,5 @@ function changeToDatePublished() {
 
 window.addEventListener( 'click', (e) => {
 
-  console.log(myLibrary)
+  console.log(myLibrary[0])
 })
