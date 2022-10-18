@@ -234,7 +234,6 @@ settingsDate.addEventListener('change', (e) => {
     dateCreated = false;
   }
 })
-
 function changeToDateCreated() {
   const sorted = JSON.parse(JSON.stringify(myLibrary)) 
   sorted.sort( function( book1, book2 ) {
@@ -248,7 +247,6 @@ function changeToDateCreated() {
   eraseContainerContent()
   loopAndCreateCard(sorted)
 }
-
 function changeToDatePublished() {
   const sorted = JSON.parse(JSON.stringify(myLibrary)) 
   sorted.sort( function( book1, book2 ) {
@@ -278,6 +276,15 @@ function changeToDatePublished() {
   eraseContainerContent()
   loopAndCreateCard(sorted)
 } 
+// change order from ascending to descending and vice versa
+function changeToAscending() {
+
+}
+
+function changeToDescending() {
+  
+}
+
 
 window.addEventListener( 'click', (e) => {
 
