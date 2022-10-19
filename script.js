@@ -92,6 +92,9 @@ function addBookToLibrary() {
     buttonAllow = false;
     empyInputs() 
   }
+  checkBookOrderAndSort()
+}
+function checkBookOrderAndSort() {
   if( datePublished === true ) {
     if( ascending === true )
       changeToDatePublished( 1, -1);
