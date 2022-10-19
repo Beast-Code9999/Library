@@ -51,24 +51,24 @@ let myLibrary = [
 ];
 // Constructor function
 function Book(title, author, pages, date, read) {
-  this.title = title
-  this.author = author
-  this.pages = pages 
-  this.date = date
-  this.read = read
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.date = date;
+  this.read = read;
 }
 function changeInputReadValue() {
   if(inputRead.checked === true) {
-    return 'read'
+    return 'read';
   }
   else {
-    return 'not read'
+    return 'not read';
   }
 }
 // add order of book by date created 
 function addBookOrder() {
   for( let i = 0; i < myLibrary.length; i++ ) {
-    myLibrary[i].order = i
+    myLibrary[i].order = i;
   }
 }
 // book order status
@@ -85,14 +85,14 @@ function addBookToLibrary() {
   }
   if(buttonAllow === true) {
     const book = new Book(`${inputTitle.value}`, `${inputAuthor.value}`, `${inputPages.value}`, `${inputDate.value}`, `${changeInputReadValue()}`)
-    myLibrary.push(book)
-    addBookOrder()
-    eraseContainerContent()
-    loopAndCreateCard(myLibrary)
+    myLibrary.push(book);
+    addBookOrder();
+    eraseContainerContent();
+    loopAndCreateCard(myLibrary);
     buttonAllow = false;
-    empyInputs() 
+    empyInputs();
   }
-  checkBookOrderAndSort()
+  checkBookOrderAndSort();
 }
 function checkBookOrderAndSort() {
   if( datePublished === true ) {
@@ -113,22 +113,22 @@ function checkBookOrderAndSort() {
 }
 function empyInputs() {
   inputText.forEach( input => {
-    input.textContent = ''
-    input.value = ''
+    input.textContent = '';
+    input.value = '';
     input.nextElementSibling.classList.remove('input__text-notnull');
   })
-  inputDate.value = ''
+  inputDate.value = '';
   inputRead.checked = false;
 }
 function loopAndCreateCard(library) {
   for(let i = 0; i < library.length; i++) {
-    createCard(library[i].title, library[i].author, library[i].pages, library[i].date, library[i].read, i)
+    createCard(library[i].title, library[i].author, library[i].pages, library[i].date, library[i].read, i);
   }
 }
 // create and erase card from container
-const container = document.getElementById('card-container')
+const container = document.getElementById('card-container');
 function eraseContainerContent() {
-  container.innerHTML = ''
+  container.innerHTML = '';
 }
 function createCard(title, author, pages, date, read, counter) {
   const content = document.createElement('div');
@@ -141,14 +141,14 @@ function createCard(title, author, pages, date, read, counter) {
                         <h3 class="card__pages">Number of pages: <span class="card__pages-span">${pages}</span> </h3>
                         <h3 class="card__publish-date">Originally published: <span class="card__publish-date-span">${date}</span></h3>
                         <button class="card__button" id="status-btn">${read}</button>
-                      `
+                      `;
   if( read === 'read' ) {
     content.classList.add('card--read');
-    content.lastElementChild.classList.add('card__button--read')
+    content.lastElementChild.classList.add('card__button--read');
   }
   else if( read === 'not read' ) {
     content.classList.add('card--unread');
-    content.lastElementChild.classList.add('card__button--unread')
+    content.lastElementChild.classList.add('card__button--unread');
   }
 }
 // change read status
@@ -156,8 +156,8 @@ window.addEventListener("click", (e) => {
   // console.log(e.target)
   const target = e.target;
   toggleReadStatus(target);
-  deleteCard( target )
-  countBooks()
+  deleteCard( target );
+  countBooks();
 })
 // toggle read or unread on card
 function toggleReadStatus(target) {
@@ -167,17 +167,17 @@ function toggleReadStatus(target) {
         if( myLibrary[i].read === 'read' ) {
           target.classList.remove('card__button--read');
           target.classList.add('card__button--unread');
-          target.textContent = 'not read'
-          target.parentNode.classList.remove('card--read')
-          target.parentNode.classList.add('card--unread')
+          target.textContent = 'not read';
+          target.parentNode.classList.remove('card--read');
+          target.parentNode.classList.add('card--unread');
           myLibrary[i].read = 'not read';
         }
         else if( myLibrary[i].read !== 'read' ) {
           target.classList.remove('card__button--unread');
           target.classList.add('card__button--read');
-          target.textContent = 'read'
-          target.parentNode.classList.remove('card--unread')
-          target.parentNode.classList.add('card--read')
+          target.textContent = 'read';
+          target.parentNode.classList.remove('card--unread');
+          target.parentNode.classList.add('card--read');
           myLibrary[i].read = 'read'; 
         }
       }
@@ -190,10 +190,10 @@ function deleteCard( target ) { /// NEEDS MODIFICATION
     // console.log( target.parentNode.parentNode.childNodes[3].textContent )
     for( let i = 0; i < myLibrary.length; i++ ) {
       if( myLibrary[i].title === target.parentNode.parentNode.childNodes[3].textContent ) {
-        myLibrary.splice(i, 1)
+        myLibrary.splice(i, 1);
       }
     }
-    checkBookOrderAndSort()
+    checkBookOrderAndSort();
     // myLibrary.splice(Number(target.dataset.counter), 1)
     // eraseContainerContent()
     // loopAndCreateCard(myLibrary)
@@ -202,8 +202,8 @@ function deleteCard( target ) { /// NEEDS MODIFICATION
 // delete all of the cards
 deleteAll.addEventListener('click', deleteAllCards)
 function deleteAllCards() {
-  myLibrary = []
-  eraseContainerContent()
+  myLibrary = [];
+  eraseContainerContent();
 }
 // count how many books are there
 function countBooks() {
@@ -228,7 +228,7 @@ function countBooks() {
 }
 // reorder myLibrary
 settingsDate.addEventListener('change', (e) => {
-  const value = e.target.value
+  const value = e.target.value;
   if( value === 'created-date') {
     if( ascending === true )
       changeToDateCreated( 1, -1);
@@ -250,57 +250,54 @@ settingsDate.addEventListener('change', (e) => {
   }
 })
 function changeToDateCreated( reverseNumOne, reverseNumTwo) {
-  const sorted = JSON.parse(JSON.stringify(myLibrary)) 
+  const sorted = JSON.parse(JSON.stringify(myLibrary));
   sorted.sort( function( book1, book2 ) {
     if( book1.order > book2.order ) {
-      return reverseNumOne
+      return reverseNumOne;
     }
     else {
-      return reverseNumTwo
+      return reverseNumTwo;
     }
   })
-  eraseContainerContent()
-  loopAndCreateCard(sorted)
+  eraseContainerContent();
+  loopAndCreateCard(sorted);
 }
 function changeToDatePublished( reverseNumOne, reverseNumTwo ) {
-  const sorted = JSON.parse(JSON.stringify(myLibrary)) 
+  const sorted = JSON.parse(JSON.stringify(myLibrary));
   sorted.sort( function( book1, book2 ) {
     if( Number(book1.date.substr(0,4)) > Number(book2.date.substr(0,4)) )  {
-      return reverseNumOne
+      return reverseNumOne;
     } 
     else if( Number(book1.date.substr(0,4)) === Number(book2.date.substr(0,4)) ) {
         if( Number(book1.date.substr(5,2)) > Number(book2.date.substr(5,2)) ) {
-          return reverseNumOne
+          return reverseNumOne;
         } 
         else if( Number(book1.date.substr(5,2)) === Number(book2.date.substr(5,2)) ) {
           if( Number(book1.date.substr(8,2)) > Number(book2.date.substr(8,2)) ) {
-            return reverseNumOne
+            return reverseNumOne;
           }
           else {
-            return reverseNumTwo
+            return reverseNumTwo;
           }
         }
         else {
-          return reverseNumTwo
+          return reverseNumTwo;
         }
     }
     else {
-      return reverseNumTwo
+      return reverseNumTwo;
     }
   })
-
-  eraseContainerContent()
-  loopAndCreateCard(sorted)
+  eraseContainerContent();
+  loopAndCreateCard(sorted);
 } 
 // change order from ascending to descending and vice versa
 settingsAscDesc.addEventListener('change', e => {
-  console.log( 'change working')
-  const target = e.target.value
-  changeToAscending( target )
-  changeToDescending( target )
-  checkBookOrderAndSort()
+  const target = e.target.value;
+  changeToAscending( target );
+  changeToDescending( target );
+  checkBookOrderAndSort();
 })
- 
 function changeToAscending( target ) {
   if( target === 'ascending' ) { 
     ascending = true;
@@ -308,7 +305,6 @@ function changeToAscending( target ) {
 
   }
 }
-
 function changeToDescending( target ) {
   if( target === 'descending') {
     descending = true;
