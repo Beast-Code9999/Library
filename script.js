@@ -193,21 +193,7 @@ function deleteCard( target ) { /// NEEDS MODIFICATION
         myLibrary.splice(i, 1)
       }
     }
-    if( datePublished === true ) {
-      if( ascending === true )
-        changeToDatePublished( 1, -1);
-      else if( descending === true ) {
-        changeToDatePublished( -1, 1);
-  
-      }
-    }
-    if( dateCreated === true ) {
-      if( ascending === true )
-        changeToDateCreated( 1, -1);
-      else if( descending === true ) {
-        changeToDateCreated( -1, 1);
-      }
-    }
+    checkBookOrderAndSort()
     // myLibrary.splice(Number(target.dataset.counter), 1)
     // eraseContainerContent()
     // loopAndCreateCard(myLibrary)
@@ -242,7 +228,6 @@ function countBooks() {
 }
 // reorder myLibrary
 settingsDate.addEventListener('change', (e) => {
-  // console.log(e.target.value)
   const value = e.target.value
   if( value === 'created-date') {
     if( ascending === true )
@@ -313,21 +298,7 @@ settingsAscDesc.addEventListener('change', e => {
   const target = e.target.value
   changeToAscending( target )
   changeToDescending( target )
-  if( datePublished === true ) {
-    if( ascending === true )
-      changeToDatePublished( 1, -1);
-    else if( descending === true ) {
-      changeToDatePublished( -1, 1);
-
-    }
-  }
-  if( dateCreated === true ) {
-    if( ascending === true )
-      changeToDateCreated( 1, -1);
-    else if( descending === true ) {
-      changeToDateCreated( -1, 1);
-    }
-  }  // console.log(ascending, descending)
+  checkBookOrderAndSort()
 })
  
 function changeToAscending( target ) {
@@ -344,9 +315,7 @@ function changeToDescending( target ) {
     ascending = false;
   }
 }
-
-
-window.addEventListener( 'click', (e) => {
-  console.log(ascending, descending)
-  console.log(myLibrary[0])
-})
+// window.addEventListener( 'click', (e) => {
+//   console.log(ascending, descending)
+//   console.log(myLibrary[0])
+// })
