@@ -153,7 +153,6 @@ function createCard(title, author, pages, date, read, counter) {
 }
 // change read status
 window.addEventListener("click", (e) => {
-  // console.log(e.target)
   const target = e.target;
   toggleReadStatus(target);
   deleteCard( target );
@@ -185,9 +184,8 @@ function toggleReadStatus(target) {
   }
 }
 // delete individual card
-function deleteCard( target ) { /// NEEDS MODIFICATION
+function deleteCard( target ) { 
   if( target.id === 'delete-img' || target.id === 'delete-span' ) {
-    // console.log( target.parentNode.parentNode.childNodes[3].textContent )
     for( let i = 0; i < myLibrary.length; i++ ) {
       if( myLibrary[i].title === target.parentNode.parentNode.childNodes[3].textContent ) {
         myLibrary.splice(i, 1);
@@ -243,7 +241,6 @@ settingsDate.addEventListener('change', (e) => {
       changeToDatePublished( 1, -1);
     else if( descending === true ) {
       changeToDatePublished( -1, 1);
-
     }
     datePublished = true;
     dateCreated = false;
@@ -302,7 +299,6 @@ function changeToAscending( target ) {
   if( target === 'ascending' ) { 
     ascending = true;
     descending = false;
-
   }
 }
 function changeToDescending( target ) {
